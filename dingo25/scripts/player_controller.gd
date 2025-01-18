@@ -14,6 +14,10 @@ var direction = 0
 
 
 func _physics_process(delta: float) -> void:
+	#go back to menu 
+	if Input.is_action_just_pressed("menu"):
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
