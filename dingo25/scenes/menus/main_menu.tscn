@@ -41,13 +41,6 @@ theme_override_styles/normal = ExtResource("2_8hh0g")
 text = "Start"
 script = ExtResource("3_gwq54")
 
-[node name="Option" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_mdafw")
-theme_override_font_sizes/font_size = 45
-theme_override_styles/normal = ExtResource("2_8hh0g")
-text = "Option"
-
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_mdafw")
@@ -69,5 +62,4 @@ theme = SubResource("Theme_3l2hq")
 text = "PlaceHolder"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
