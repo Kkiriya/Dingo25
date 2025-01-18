@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxcbytxbn5tg2"]
+[gd_scene load_steps=11 format=3 uid="uid://bxcbytxbn5tg2"]
 
 [ext_resource type="Texture2D" uid="uid://c302e3vpynb18" path="res://Assets/sprites/knight.png" id="1_cbrn4"]
 [ext_resource type="Script" path="res://Scripts/tree.gd" id="1_m6phm"]
 [ext_resource type="PackedScene" uid="uid://rh5fk0h1xkcn" path="res://Scenes/platform.tscn" id="3_6ylnr"]
+[ext_resource type="PackedScene" uid="uid://doovc6xxqw1l3" path="res://Interactions/Interactions area/Interaction_area.tscn" id="4_8hcoa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxqr3"]
 atlas = ExtResource("1_cbrn4")
@@ -40,6 +41,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f724i"]
+radius = 22.0
+height = 88.0
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_m6phm")
 
@@ -55,3 +60,10 @@ position = Vector2(-27, -7)
 
 [node name="RightPlatform" parent="." instance=ExtResource("3_6ylnr")]
 position = Vector2(27, -7)
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_8hcoa")]
+position = Vector2(-1, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_f724i")

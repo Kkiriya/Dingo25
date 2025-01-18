@@ -1,8 +1,9 @@
 extends Node2D
 
-
+@onready var interaction_area: InteractionArea = $InteractionArea
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	interaction_area.interact = Callable(self, "Create_Platform")
 	$LeftPlatform.visible = false	
 	$RightPlatform.visible = false
 	$LeftPlatform.get_node("CollisionShape2D").disabled = true
@@ -11,18 +12,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _physics_process(delta):
-	if Input.is_action_pressed("WaterTree"):
-		Create_Platform(true)
 #Left == true, Right == false
-func Create_Platform(Left: bool) -> void:
+func Create_Platform() -> void:
 	#When clicked on "x" on keyboard
 	#Actionner animation 1 fois
 	#Rendre la platforme solide et visible
-	if Left:
+	#Left: bool
+	#if Left:
 		$LeftPlatform.visible = true		
 		$LeftPlatform.get_node("CollisionShape2D").disabled = false
-	else:
+	#else:
 		$RightPlatform.visible = true
 		$RightPlatform.get_node("CollisionShape2D").disabled = false
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dww0y2n4v8eoc"]
 
 [ext_resource type="Script" path="res://Scripts/interaction_manager.gd" id="1_75qb4"]
-[ext_resource type="FontFile" uid="uid://cro5hcu2k6umm" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_hpyrp"]
+[ext_resource type="FontFile" uid="uid://rj5mymyf2kx8" path="res://Assets/fonts/PixelOperator8.ttf" id="2_ld68h"]
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_75qb4")
@@ -15,7 +15,7 @@ offset_left = -103.5
 offset_right = 103.5
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_hpyrp")
+theme_override_fonts/font = ExtResource("2_ld68h")
 text = "Press [R] to Water the Tree"
 horizontal_alignment = 1
 vertical_alignment = 1
