@@ -1,6 +1,8 @@
 extends Node
 @export var player : CharacterBody2D
 @export var next_level : Area2D
+@export var bg_birds : AudioStreamPlayer
+@export var bg_music : AudioStreamPlayer
 
 var in_body = 0
 
