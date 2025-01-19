@@ -17,8 +17,9 @@ func Create_Platform() -> void:
 	#When clicked on "x" on keyboard
 	#Actionner animation 1 fois
 	#Rendre la platforme solide et visible
-		$RightPlatform.visible = true
-		$RightPlatform.get_node("CollisionShape2D").disabled = false
+	if $LeftPlatform.visible != true:
+		$LeftPlatform.visible = true
+		$LeftPlatform.get_node("CollisionShape2D").disabled = false
 		
 	
 	

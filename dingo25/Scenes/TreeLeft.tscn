@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://by8rqb7evygql"]
 
-[ext_resource type="Script" path="res://Scripts/tree.gd" id="1_grmyv"]
+[ext_resource type="Script" path="res://Scripts/tree_left.gd" id="1_grmyv"]
 [ext_resource type="Texture2D" uid="uid://c302e3vpynb18" path="res://Assets/sprites/knight.png" id="2_8x4j2"]
 [ext_resource type="PackedScene" uid="uid://rh5fk0h1xkcn" path="res://Scenes/platform.tscn" id="3_xgsi3"]
 [ext_resource type="PackedScene" uid="uid://doovc6xxqw1l3" path="res://Interactions/Interactions area/Interaction_area.tscn" id="4_djxq4"]
@@ -45,7 +45,7 @@ animations = [{
 radius = 23.0
 height = 114.0
 
-[node name="Node2D" type="Node2D"]
+[node name="TreeLeft" type="Node2D"]
 script = ExtResource("1_grmyv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
