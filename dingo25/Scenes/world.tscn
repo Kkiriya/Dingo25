@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dvarflvdl42fe"]
+[gd_scene load_steps=9 format=4 uid="uid://dvarflvdl42fe"]
 
 [ext_resource type="Texture2D" uid="uid://cq3o050j6vuae" path="res://Assets/sprites/world_tileset.png" id="1_7tomr"]
 [ext_resource type="PackedScene" uid="uid://bxcbytxbn5tg2" path="res://Scenes/TreeRight.tscn" id="2_h5bxa"]
+[ext_resource type="PackedScene" uid="uid://b8bi1xg1vkkhx" path="res://Scenes/TreeLefta.tscn" id="3_x7avb"]
+[ext_resource type="PackedScene" uid="uid://dww0y2n4v8eoc" path="res://Interactions/InteractionManager.tscn" id="4_02l0j"]
+[ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://Scenes/player.tscn" id="5_t4ogv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s28rp"]
 
@@ -171,4 +174,14 @@ tile_map_data = PackedByteArray("AADz/wIAAAAAAAAAAAD0/wIAAAAAAAAAAAD1/wIAAAAAAAA
 tile_set = SubResource("TileSet_s07bf")
 
 [node name="Node2D" parent="." instance=ExtResource("2_h5bxa")]
-position = Vector2(53, 35)
+position = Vector2(119, -4)
+
+[node name="TreeLefta" parent="." instance=ExtResource("3_x7avb")]
+position = Vector2(-124, -12)
+
+[node name="InteractionManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_02l0j")]
+position = Vector2(-203, -209)
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("5_t4ogv")]
+position = Vector2(-33, 23)
