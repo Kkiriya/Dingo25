@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=4 uid="uid://bd7woiw85su8m"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_2kj0f"]
-[ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://sprites/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
-[ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://scenes/player.tscn" id="2_ilx0i"]
+[ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://Assets/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
+[ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://Scenes/player.tscn" id="2_ilx0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
 resource_name = "terrain"
