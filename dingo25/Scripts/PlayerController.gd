@@ -3,6 +3,10 @@ extends CharacterBody2D
 @export var speed =10
 @export var jump_velocity = 10 
 @export var RespawnPoint : Marker2D
+@export var jumpUI: Label
+@export var waterUI: Label
+@export var resetlvl_UI: Label
+@export var nextlvl_UI: Label
 #@export var NextLevel : Area2D
 
 var speed_multiplier = 30
@@ -12,6 +16,12 @@ var direction = 0
 
 #const SPEED = 300.0
 #const JUMP_VELOCITY = -400.0
+
+func _ready() -> void:
+	jumpUI.visible = false
+	waterUI.visible = false
+	resetlvl_UI.visible = false
+	nextlvl_UI.visible = false
 
 
 func _physics_process(delta: float) -> void:
@@ -40,3 +50,27 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, (speed * speed_multiplier))
 
 	move_and_slide()
+
+
+func _on_jump_body_entered(body: Node2D) -> void:
+	jumpUI.visible = true
+	await get_tree().create_timer(1).timeout
+	jumpUI.visible = false
+
+
+func _on_water_body_entered(body: Node2D) -> void:
+	waterUI.visible = true
+	await get_tree().create_timer(1).timeout
+	waterUI.visible = false
+
+
+func _on_next_level_body_entered(body: Node2D) -> void:
+	nextlvl_UI.visible = true
+	await get_tree().create_timer(1).timeout
+	nextlvl_UI.visible = false
+
+
+func _on_reset_body_entered(body: Node2D) -> void:
+	resetlvl_UI.visible = true
+	await get_tree().create_timer(1).timeout
+	resetlvl_UI.visible = false

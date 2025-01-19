@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyp2or1qx5lhx"]
+[gd_scene load_steps=18 format=3 uid="uid://cyp2or1qx5lhx"]
 
 [ext_resource type="Texture2D" uid="uid://djba2ts2aee3y" path="res://sprites/player.png" id="1_c0dl6"]
 [ext_resource type="Script" path="res://scripts/PlayerController.gd" id="1_f1yub"]
 [ext_resource type="Script" path="res://scripts/player_anim.gd" id="2_64m7b"]
+[ext_resource type="Texture2D" uid="uid://c7fda1fbbb0rt" path="res://sprites/waterCan/Water3.png" id="2_c7akd"]
+[ext_resource type="FontFile" uid="uid://cpl5o0gy0q54g" path="res://Assets/nature-green-font/NatureGreen-gxm66.otf" id="2_qaofh"]
+[ext_resource type="Script" path="res://Scripts/visual_cues.gd" id="4_nonui"]
 
 [sub_resource type="Animation" id="Animation_jboqu"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
+tracks/0/path = NodePath("PlayerAnim/player_sprite:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +28,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
+tracks/0/path = NodePath("PlayerAnim/player_sprite:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +46,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
+tracks/0/path = NodePath("PlayerAnim/player_sprite:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,7 +62,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
+tracks/0/path = NodePath("PlayerAnim/player_sprite:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -76,7 +79,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
+tracks/0/path = NodePath("PlayerAnim/player_sprite:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -98,19 +101,122 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igkq8"]
 size = Vector2(6, 14)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7v71"]
+atlas = ExtResource("2_c7akd")
+
+[sub_resource type="Animation" id="Animation_5g68l"]
+resource_name = "watering"
+length = 1.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wateringCan_sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jmbwj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wateringCan_sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkb0a"]
+_data = {
+"RESET": SubResource("Animation_jmbwj"),
+"watering": SubResource("Animation_5g68l")
+}
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("jumpUI", "waterUI", "resetlvl_UI", "nextlvl_UI") groups=["player"]]
 script = ExtResource("1_f1yub")
+jumpUI = NodePath("Camera2D/CanvasLayer/jump_lbl")
+waterUI = NodePath("Camera2D/CanvasLayer/water_lbl")
+resetlvl_UI = NodePath("Camera2D/CanvasLayer/resetlvl_lbl")
+nextlvl_UI = NodePath("Camera2D/CanvasLayer/nextlvl_lbl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="jump_lbl" type="Label" parent="Camera2D/CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_right = 66.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_qaofh")
+theme_override_font_sizes/font_size = 30
+text = "Press \"cross\" to jump"
+horizontal_alignment = 1
+
+[node name="water_lbl" type="Label" parent="Camera2D/CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_right = 66.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_qaofh")
+theme_override_font_sizes/font_size = 30
+text = "Press \"square\" to water tree"
+horizontal_alignment = 1
+
+[node name="resetlvl_lbl" type="Label" parent="Camera2D/CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_right = 66.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_qaofh")
+theme_override_font_sizes/font_size = 30
+text = "Press \"triangle\" to restart the level"
+horizontal_alignment = 1
+
+[node name="nextlvl_lbl" type="Label" parent="Camera2D/CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.5
+offset_right = 66.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_qaofh")
+theme_override_font_sizes/font_size = 30
+text = "Press \"up\" to go to next level"
+horizontal_alignment = 1
+
 [node name="PlayerAnim" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
 script = ExtResource("2_64m7b")
 player_controller = NodePath("..")
-animation_player = NodePath("AnimationPlayer")
-sprite = NodePath("Sprite2D")
+animation_player = NodePath("player_AnimationPlayer")
+sprite = NodePath("player_sprite")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnim"]
+[node name="player_AnimationPlayer" type="AnimationPlayer" parent="PlayerAnim"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_75i6h")
@@ -118,7 +224,7 @@ libraries = {
 autoplay = "idle"
 speed_scale = 1.5
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerAnim"]
+[node name="player_sprite" type="Sprite2D" parent="PlayerAnim"]
 position = Vector2(0, -8)
 texture = ExtResource("1_c0dl6")
 region_enabled = true
@@ -128,3 +234,23 @@ region_rect = Rect2(0, 0, 16, 16)
 z_index = 5
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_igkq8")
+
+[node name="Visual_Cues" type="Node" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
+script = ExtResource("4_nonui")
+player_controller = NodePath("..")
+animation_player = NodePath("wateringCan_sprite/wateringCan_AnimationPlayer")
+sprite = NodePath("wateringCan_sprite")
+
+[node name="wateringCan_sprite" type="Sprite2D" parent="Visual_Cues"]
+visible = false
+position = Vector2(7, -11)
+texture = SubResource("AtlasTexture_a7v71")
+flip_h = true
+
+[node name="wateringCan_AnimationPlayer" type="AnimationPlayer" parent="Visual_Cues/wateringCan_sprite"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_tkb0a")
+}
+
+[connection signal="animation_finished" from="Visual_Cues/wateringCan_sprite/wateringCan_AnimationPlayer" to="Visual_Cues" method="_on_watering_can_animation_player_animation_finished"]

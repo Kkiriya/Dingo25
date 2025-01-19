@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://bd7woiw85su8m"]
+[gd_scene load_steps=10 format=4 uid="uid://bd7woiw85su8m"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_2kj0f"]
-[ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://Assets/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
+[ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://sprites/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
 [ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://Scenes/player.tscn" id="2_ilx0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
@@ -273,12 +273,20 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mttf4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcaat"]
-size = Vector2(25.9685, 14.2077)
+size = Vector2(25.5495, 14.2077)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ml2sq"]
+size = Vector2(41, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0i26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8iyc"]
+size = Vector2(100, 12)
 
 [node name="Game" type="Node" node_paths=PackedStringArray("player", "next_level")]
 script = ExtResource("1_2kj0f")
 player = NodePath("Player")
-next_level = NodePath("Next_level")
+next_level = NodePath("Map Object/Next_level")
 
 [node name="TileMap" type="Node" parent="."]
 
@@ -299,20 +307,51 @@ collision_layer = 2
 collision_mask = 3
 speed = 3
 jump_velocity = 7
-RespawnPoint = NodePath("../RespawnPoint")
+RespawnPoint = NodePath("../Map Object/RespawnPoint")
 
-[node name="RespawnPoint" type="Marker2D" parent="."]
-position = Vector2(20, -13)
+[node name="Map Object" type="Node" parent="."]
 
-[node name="Next_level" type="Area2D" parent="."]
+[node name="Next_level" type="Area2D" parent="Map Object"]
 position = Vector2(73, -25)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_level"]
-position = Vector2(179, -248)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Object/Next_level"]
+position = Vector2(180, -248)
 scale = Vector2(0.313117, 1.12615)
 shape = SubResource("RectangleShape2D_pcaat")
 
-[connection signal="body_entered" from="Next_level" to="." method="_on_next_level_body_entered"]
-[connection signal="body_shape_exited" from="Next_level" to="." method="_on_next_level_body_shape_exited"]
+[node name="RespawnPoint" type="Marker2D" parent="Map Object"]
+position = Vector2(20, -13)
+
+[node name="jump" type="Area2D" parent="Map Object"]
+position = Vector2(57, -16)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Object/jump"]
+shape = SubResource("RectangleShape2D_ml2sq")
+
+[node name="water" type="Area2D" parent="Map Object"]
+position = Vector2(117, -27)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Object/water"]
+shape = SubResource("RectangleShape2D_t0i26")
+
+[node name="reset" type="Area2D" parent="Map Object"]
+position = Vector2(219, -10)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Object/reset"]
+position = Vector2(6, 4)
+shape = SubResource("RectangleShape2D_c8iyc")
+
+[connection signal="body_entered" from="Map Object/Next_level" to="." method="_on_next_level_body_entered"]
+[connection signal="body_entered" from="Map Object/Next_level" to="Player" method="_on_next_level_body_entered"]
+[connection signal="body_shape_exited" from="Map Object/Next_level" to="." method="_on_next_level_body_shape_exited"]
+[connection signal="body_entered" from="Map Object/jump" to="Player" method="_on_jump_body_entered"]
+[connection signal="body_entered" from="Map Object/water" to="Player" method="_on_water_body_entered"]
+[connection signal="body_entered" from="Map Object/reset" to="Player" method="_on_reset_body_entered"]
