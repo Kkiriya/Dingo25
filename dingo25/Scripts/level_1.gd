@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if in_body == 1:
-		if Input.is_action_just_pressed("up"):
-			get_tree().change_scene_to_file("res://scenes/level/level_2.tscn")
+		if Input.is_action_just_pressed("down"):
+			get_tree().change_scene_to_file("res://scenes/level/test.tscn")
 func _on_next_level_body_entered(body: Node2D) -> void:
 	in_body = 1
 	

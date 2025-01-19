@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://bd7woiw85su8m"]
+[gd_scene load_steps=7 format=4 uid="uid://bd7woiw85su8m"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_2kj0f"]
 [ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://assets/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
 [ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://scenes/player.tscn" id="2_ilx0i"]
-[ext_resource type="Texture2D" uid="uid://bboqd7d2nph3b" path="res://sprites/light_texture/32x32 textures (12).png" id="4_bgfuu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
 resource_name = "terrain"
@@ -276,26 +275,7 @@ sources/0 = SubResource("TileSetAtlasSource_mttf4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcaat"]
 size = Vector2(25.9685, 14.2077)
 
-[sub_resource type="Gradient" id="Gradient_s43ow"]
-offsets = PackedFloat32Array(0, 0.714286)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ebo68"]
-gradient = SubResource("Gradient_s43ow")
-fill = 1
-fill_from = Vector2(0.495413, 0.477064)
-
-[sub_resource type="Gradient" id="Gradient_dlqnw"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fu237"]
-gradient = SubResource("Gradient_dlqnw")
-
-[sub_resource type="Gradient" id="Gradient_nyl8t"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1wrx8"]
-gradient = SubResource("Gradient_nyl8t")
-
-[node name="Game2" type="Node" node_paths=PackedStringArray("player", "next_level")]
+[node name="Game" type="Node" node_paths=PackedStringArray("player", "next_level")]
 script = ExtResource("1_2kj0f")
 player = NodePath("Player")
 next_level = NodePath("Next_level")
@@ -333,74 +313,6 @@ collision_mask = 2
 position = Vector2(179, -248)
 scale = Vector2(0.313117, 1.12615)
 shape = SubResource("RectangleShape2D_pcaat")
-
-[node name="LightSource" type="Node" parent="."]
-
-[node name="PointLight2D" type="PointLight2D" parent="LightSource"]
-position = Vector2(84, -35)
-color = Color(0.956863, 0.584314, 0.431373, 1)
-energy = 1.2
-texture = SubResource("GradientTexture2D_ebo68")
-
-[node name="PointLight2D2" type="PointLight2D" parent="LightSource"]
-position = Vector2(124, -164)
-color = Color(0.956863, 0.584314, 0.431373, 1)
-energy = 1.2
-texture = SubResource("GradientTexture2D_ebo68")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="LightSource"]
-color = Color(0.67498, 0.299584, 0.313128, 1)
-energy = 0.7
-blend_mode = 1
-
-[node name="PointLight2D3" type="PointLight2D" parent="LightSource"]
-position = Vector2(76, -259)
-color = Color(0.585729, 0.436031, 0.21067, 1)
-energy = 1.3
-texture = ExtResource("4_bgfuu")
-
-[node name="PointLight2D4" type="PointLight2D" parent="LightSource"]
-position = Vector2(269, -284)
-color = Color(0.964706, 0.345098, 0.105882, 1)
-energy = 1.3
-texture = ExtResource("4_bgfuu")
-
-[node name="PointLight2D5" type="PointLight2D" parent="LightSource"]
-position = Vector2(276, -283)
-color = Color(0.964706, 0.345098, 0.105882, 1)
-energy = 1.3
-texture = ExtResource("4_bgfuu")
-
-[node name="PointLight2D6" type="PointLight2D" parent="LightSource"]
-position = Vector2(237, -283)
-color = Color(0.964706, 0.345098, 0.105882, 1)
-energy = 1.3
-texture = ExtResource("4_bgfuu")
-
-[node name="PointLight2D7" type="PointLight2D" parent="LightSource"]
-position = Vector2(228, -283)
-color = Color(0.964706, 0.345098, 0.105882, 1)
-energy = 1.3
-texture = ExtResource("4_bgfuu")
-
-[node name="PointLight2D8" type="PointLight2D" parent="LightSource"]
-position = Vector2(261, -18)
-energy = 1.3
-texture = ExtResource("4_bgfuu")
-
-[node name="PointLight2D16" type="PointLight2D" parent="LightSource"]
-position = Vector2(20, -8)
-scale = Vector2(0.125, 0.25)
-color = Color(0.878431, 0.803922, 0.388235, 1)
-energy = 0.8
-texture = SubResource("GradientTexture2D_fu237")
-
-[node name="PointLight2D15" type="PointLight2D" parent="LightSource"]
-position = Vector2(253, -272)
-scale = Vector2(0.125, 0.25)
-color = Color(1, 1, 0.368627, 1)
-energy = 0.8
-texture = SubResource("GradientTexture2D_1wrx8")
 
 [connection signal="body_entered" from="Next_level" to="." method="_on_next_level_body_entered"]
 [connection signal="body_shape_exited" from="Next_level" to="." method="_on_next_level_body_shape_exited"]
