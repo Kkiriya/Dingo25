@@ -1,13 +1,8 @@
 [gd_scene load_steps=7 format=4 uid="uid://bd7woiw85su8m"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_2kj0f"]
-[ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://assets/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
+[ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://sprites/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
 [ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://scenes/player.tscn" id="2_ilx0i"]
-[ext_resource type="PackedScene" uid="uid://ch0bjvm5d4vho" path="res://scenes/trees/tree_left.tscn" id="3_a8jol"]
-[ext_resource type="PackedScene" uid="uid://bp6omihfo5gbs" path="res://scenes/platforms/wood_platform_1.tscn" id="5_y75sl"]
-[ext_resource type="PackedScene" uid="uid://cuthdlkhc4p2" path="res://scenes/platforms/wood_platform_2.tscn" id="6_j05rr"]
-[ext_resource type="PackedScene" uid="uid://f3wx2wj64l11" path="res://scenes/platforms/wooden_smallSlab.tscn" id="7_taewk"]
-[ext_resource type="Texture2D" uid="uid://bboqd7d2nph3b" path="res://sprites/light_texture/32x32 textures (12).png" id="8_kp6yu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
 resource_name = "terrain"
