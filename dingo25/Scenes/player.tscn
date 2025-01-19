@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cyp2or1qx5lhx"]
+[gd_scene load_steps=20 format=3 uid="uid://cyp2or1qx5lhx"]
 
 [ext_resource type="Texture2D" uid="uid://djba2ts2aee3y" path="res://sprites/player.png" id="1_c0dl6"]
 [ext_resource type="Script" path="res://scripts/PlayerController.gd" id="1_f1yub"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c7fda1fbbb0rt" path="res://sprites/waterCan/Water3.png" id="2_c7akd"]
 [ext_resource type="FontFile" uid="uid://cpl5o0gy0q54g" path="res://Assets/nature-green-font/NatureGreen-gxm66.otf" id="2_qaofh"]
 [ext_resource type="Script" path="res://Scripts/visual_cues.gd" id="4_nonui"]
+[ext_resource type="AudioStream" uid="uid://k4ymt0yv4yjw" path="res://Assets/sounds/jump_drop_sounds/jump0.ogg" id="7_hgfw8"]
+[ext_resource type="AudioStream" uid="uid://d0ointi7iqklx" path="res://Assets/sounds/jump_drop_sounds/drop0.ogg" id="8_24xep"]
 
 [sub_resource type="Animation" id="Animation_jboqu"]
 length = 0.001
@@ -20,6 +22,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(0, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("jump:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_hgfw8")]
 }
 
 [sub_resource type="Animation" id="Animation_1dvi8"]
@@ -70,6 +84,29 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(0, 32, 16, 16)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("jump")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("jump:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_hgfw8")]
 }
 
 [sub_resource type="Animation" id="Animation_gd0rh"]
@@ -142,12 +179,14 @@ _data = {
 "watering": SubResource("Animation_5g68l")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("jumpUI", "waterUI", "resetlvl_UI", "nextlvl_UI") groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("jumpUI", "waterUI", "resetlvl_UI", "nextlvl_UI", "fall_sound", "jump_sound") groups=["player"]]
 script = ExtResource("1_f1yub")
 jumpUI = NodePath("Camera2D/CanvasLayer/jump_lbl")
 waterUI = NodePath("Camera2D/CanvasLayer/water_lbl")
 resetlvl_UI = NodePath("Camera2D/CanvasLayer/resetlvl_lbl")
 nextlvl_UI = NodePath("Camera2D/CanvasLayer/nextlvl_lbl")
+fall_sound = NodePath("fall")
+jump_sound = NodePath("jump")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
@@ -252,5 +291,11 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_tkb0a")
 }
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hgfw8")
+
+[node name="fall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_24xep")
 
 [connection signal="animation_finished" from="Visual_Cues/wateringCan_sprite/wateringCan_AnimationPlayer" to="Visual_Cues" method="_on_watering_can_animation_player_animation_finished"]

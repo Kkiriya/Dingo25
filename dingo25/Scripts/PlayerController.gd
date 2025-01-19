@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var waterUI: Label
 @export var resetlvl_UI: Label
 @export var nextlvl_UI: Label
+@export var fall_sound : AudioStreamPlayer
+@export var jump_sound : AudioStreamPlayer
 #@export var NextLevel : Area2D
 
 var speed_multiplier = 30
@@ -40,6 +42,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = jump_velocity * jump_multiplier
+		jump_sound.play()
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -54,23 +58,35 @@ func _physics_process(delta: float) -> void:
 
 func _on_jump_body_entered(body: Node2D) -> void:
 	jumpUI.visible = true
+	waterUI.visible = false
+	resetlvl_UI.visible = false
+	nextlvl_UI.visible = false
 	await get_tree().create_timer(1).timeout
 	jumpUI.visible = false
 
 
 func _on_water_body_entered(body: Node2D) -> void:
 	waterUI.visible = true
+	jumpUI.visible = false
+	resetlvl_UI.visible = false
+	nextlvl_UI.visible = false
 	await get_tree().create_timer(1).timeout
 	waterUI.visible = false
 
 
 func _on_next_level_body_entered(body: Node2D) -> void:
 	nextlvl_UI.visible = true
+	jumpUI.visible = false
+	waterUI.visible = false
+	resetlvl_UI.visible = false
 	await get_tree().create_timer(1).timeout
 	nextlvl_UI.visible = false
 
 
 func _on_reset_body_entered(body: Node2D) -> void:
 	resetlvl_UI.visible = true
+	jumpUI.visible = false
+	waterUI.visible = false
+	nextlvl_UI.visible = false
 	await get_tree().create_timer(1).timeout
 	resetlvl_UI.visible = false

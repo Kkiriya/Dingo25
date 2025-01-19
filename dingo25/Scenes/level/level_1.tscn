@@ -1,8 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://bd7woiw85su8m"]
+[gd_scene load_steps=14 format=4 uid="uid://bd7woiw85su8m"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_2kj0f"]
+[ext_resource type="Texture2D" uid="uid://dtt8shm41x7sm" path="res://Assets/clouds.png" id="2_1atj2"]
 [ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://sprites/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
 [ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://Scenes/player.tscn" id="2_ilx0i"]
+[ext_resource type="AudioStream" uid="uid://bwktmnnyo5085" path="res://Assets/music/bg_music.ogg" id="5_gfohy"]
+[ext_resource type="AudioStream" uid="uid://bipppfbuml52k" path="res://Assets/music/bg_bird_sounds.ogg" id="6_ixygg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsgqk"]
+atlas = ExtResource("2_1atj2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
 resource_name = "terrain"
@@ -283,12 +289,22 @@ size = Vector2(41, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8iyc"]
 size = Vector2(100, 12)
 
-[node name="Game" type="Node" node_paths=PackedStringArray("player", "next_level")]
+[node name="Game" type="Node" node_paths=PackedStringArray("player", "next_level", "bg_birds", "bg_music")]
 script = ExtResource("1_2kj0f")
 player = NodePath("Player")
 next_level = NodePath("Map Object/Next_level")
+bg_birds = NodePath("bg_birds")
+bg_music = NodePath("bg_music")
 
 [node name="TileMap" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="TileMap"]
+visible = false
+offset_left = -266.0
+offset_top = -419.0
+offset_right = 598.0
+offset_bottom = 136.0
+texture = SubResource("AtlasTexture_tsgqk")
 
 [node name="Background" type="TileMapLayer" parent="TileMap"]
 z_index = -3
@@ -348,6 +364,14 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map Object/reset"]
 position = Vector2(6, 4)
 shape = SubResource("RectangleShape2D_c8iyc")
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gfohy")
+autoplay = true
+
+[node name="bg_birds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ixygg")
+autoplay = true
 
 [connection signal="body_entered" from="Map Object/Next_level" to="." method="_on_next_level_body_entered"]
 [connection signal="body_entered" from="Map Object/Next_level" to="Player" method="_on_next_level_body_entered"]
