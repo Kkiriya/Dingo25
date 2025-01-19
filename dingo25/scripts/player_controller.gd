@@ -4,6 +4,7 @@ class_name PlayerController
 @export var speed =10
 @export var jump_velocity = 10 
 @export var RespawnPoint : Marker2D
+#@export var NextLevel : Area2D
 
 var speed_multiplier = 30
 var jump_multiplier = -30

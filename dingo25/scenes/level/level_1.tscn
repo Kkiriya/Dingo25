@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://bd7woiw85su8m"]
+[gd_scene load_steps=7 format=4 uid="uid://bd7woiw85su8m"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_2kj0f"]
 [ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://assets/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
@@ -272,8 +272,13 @@ tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mttf4")
 
-[node name="Game" type="Node"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcaat"]
+size = Vector2(25.9685, 14.2077)
+
+[node name="Game" type="Node" node_paths=PackedStringArray("player", "next_level")]
 script = ExtResource("1_2kj0f")
+player = NodePath("Player")
+next_level = NodePath("Next_level")
 
 [node name="TileMap" type="Node" parent="."]
 
@@ -289,7 +294,22 @@ tile_set = SubResource("TileSet_tpk5b")
 
 [node name="Player" parent="." node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_ilx0i")]
 position = Vector2(20, -8)
+collision_layer = 2
+collision_mask = 3
 RespawnPoint = NodePath("../RespawnPoint")
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
 position = Vector2(20, -13)
+
+[node name="Next_level" type="Area2D" parent="."]
+position = Vector2(73, -25)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_level"]
+position = Vector2(179, -248)
+scale = Vector2(0.313117, 1.12615)
+shape = SubResource("RectangleShape2D_pcaat")
+
+[connection signal="body_entered" from="Next_level" to="." method="_on_next_level_body_entered"]
+[connection signal="body_shape_exited" from="Next_level" to="." method="_on_next_level_body_shape_exited"]
