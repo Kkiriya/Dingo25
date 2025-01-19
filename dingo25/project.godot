@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dingo25"
-run/main_scene="res://scenes/menus/main_menu.tscn"
+run/main_scene="res://addons/maaacks_game_template/examples/scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/UI/expression_working.png"
 

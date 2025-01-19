@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch0bjvm5d4vho"]
+
+[ext_resource type="Texture2D" uid="uid://d4lwjig016wuf" path="res://sprites/trees/tree_2.png" id="1_44kqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4y5n"]
+size = Vector2(19, 2)
+
+[node name="tree_left" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_44kqv")
+region_enabled = true
+region_rect = Rect2(0.0409622, 0.841745, 36.0667, 78.1583)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8.5, 18)
+shape = SubResource("RectangleShape2D_u4y5n")
+one_way_collision = true
