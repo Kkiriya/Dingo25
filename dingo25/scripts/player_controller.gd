@@ -4,6 +4,8 @@ class_name PlayerController
 
 @export var speed =10
 @export var jump_velocity = 10 
+@export var RespawnPoint : Marker2D
+#@export var NextLevel : Area2D
 
 var speed_multiplier = 30
 var jump_multiplier = -30
@@ -15,6 +17,14 @@ var direction = 0
 
 
 func _physics_process(delta: float) -> void:
+	#go back to menu 
+	if Input.is_action_just_pressed("menu"):
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+		
+	#respawn 
+	if Input.is_action_just_pressed("reset level"):
+		global_position = RespawnPoint.position
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
