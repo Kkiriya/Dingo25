@@ -1,5 +1,5 @@
 extends Node
-@export var player : PlayerController
+@export var player : CharacterBody2D
 @export var next_level : Area2D
 
 var in_body = 0
