@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dklfpa7y2vajn"]
 
+[ext_resource type="Script" path="res://scripts/test_level.gd" id="1_3f8u3"]
 [ext_resource type="Texture2D" uid="uid://d2xv3b5epv04g" path="res://sprites/tiles_1.png" id="1_c58wa"]
-[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_eyi2s"]
 [ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://scenes/player.tscn" id="2_3t6vm"]
 [ext_resource type="PackedScene" uid="uid://l5akr8e83blo" path="res://Objects/next_level.tscn" id="4_e60f1"]
 [ext_resource type="PackedScene" uid="uid://o62tuf5s4mkx" path="res://Objects/respawn_point.tscn" id="5_prubd"]
@@ -81,19 +81,21 @@ texture = ExtResource("1_c58wa")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ilgbu")
 
-[node name="main" type="Node2D" node_paths=PackedStringArray("player")]
-script = ExtResource("1_eyi2s")
+[node name="main" type="Node2D" node_paths=PackedStringArray("player", "next_level")]
+script = ExtResource("1_3f8u3")
 player = NodePath("Player")
+next_level = NodePath("Next_level")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gw2hc")
 format = 2
 layer_0/tile_data = PackedInt32Array(65531, 65536, 0, 65532, 65536, 0, 65533, 65536, 0, 65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, -131063, 65536, 0, -131062, 65536, 0, -131061, 65536, 0, -131060, 65536, 0, -131059, 65536, 0, -65527, 65536, 1, -65526, 65536, 1, -65525, 65536, 1, -65524, 65536, 1, -65523, 65536, 1, 10, 65536, 1, 11, 65536, 1, 12, 262144, 1, 13, 327680, 1, 14, 65536, 1, -65522, 65536, 1, -131058, 65536, 0, -131076, 0, 4, -65540, 0, 5, -4, 0, 6, -131075, 65536, 4, -65539, 262144, 5, -3, 65536, 6, -131074, 131072, 4, -65538, 327680, 5, -2, 131072, 6)
 
-[node name="Player" parent="." instance=ExtResource("2_3t6vm")]
+[node name="Player" parent="." node_paths=PackedStringArray("RespawnPoint") instance=ExtResource("2_3t6vm")]
+RespawnPoint = NodePath("../RespawnPoint")
 
 [node name="Next_level" parent="." instance=ExtResource("4_e60f1")]
-position = Vector2(131, -8)
+position = Vector2(135, -8)
 
 [node name="RespawnPoint" parent="." instance=ExtResource("5_prubd")]
 position = Vector2(-42, -64)
