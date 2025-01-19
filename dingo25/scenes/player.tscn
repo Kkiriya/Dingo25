@@ -1,8 +1,39 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyp2or1qx5lhx"]
+[gd_scene load_steps=11 format=3 uid="uid://dfjf2y0f2h5mj"]
 
-[ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_2k70i"]
+[ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_7xisg"]
 [ext_resource type="Texture2D" uid="uid://djba2ts2aee3y" path="res://sprites/player.png" id="1_c0dl6"]
 [ext_resource type="Script" path="res://scripts/player_anim.gd" id="2_64m7b"]
+
+[sub_resource type="Animation" id="Animation_jboqu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_1dvi8"]
+resource_name = "fall"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 48, 16, 16)]
+}
 
 [sub_resource type="Animation" id="Animation_wbvp3"]
 resource_name = "idle"
@@ -22,8 +53,9 @@ tracks/0/keys = {
 "values": [Rect2(0, 0, 16, 16), Rect2(16, 0, 16, 16), Rect2(32, 0, 16, 16), Rect2(48, 0, 16, 16), Rect2(64, 0, 16, 16), Rect2(80, 0, 16, 16), Rect2(96, 0, 16, 16), Rect2(80, 0, 16, 16), Rect2(96, 0, 16, 16)]
 }
 
-[sub_resource type="Animation" id="Animation_jboqu"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_u1umn"]
+resource_name = "jump"
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,7 +66,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Rect2(0, 0, 16, 16)]
+"values": [Rect2(0, 32, 16, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_gd0rh"]
@@ -54,38 +86,6 @@ tracks/0/keys = {
 "values": [Rect2(0, 16, 16, 16), Rect2(16, 16, 16, 16), Rect2(32, 16, 16, 16), Rect2(48, 16, 16, 16), Rect2(0, 16, 16, 16)]
 }
 
-[sub_resource type="Animation" id="Animation_u1umn"]
-resource_name = "jump"
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 32, 16, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_1dvi8"]
-resource_name = "fall"
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnim/Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 48, 16, 16)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75i6h"]
 _data = {
 "RESET": SubResource("Animation_jboqu"),
@@ -96,13 +96,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qf1a2"]
-radius = 4.0
+radius = 3.0
 height = 14.0
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_2k70i")
-speed = 5
-jump_velocity = 8
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_7xisg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)

@@ -8,3 +8,6 @@
 script = ExtResource("2_up6er")
 next_scene = "res://addons/maaacks_game_template/examples/scenes/menus/main_menu/main_menu_with_animations.tscn"
 images = Array[Texture2D]([ExtResource("3_powqu")])
+
+[node name="BackgroundMusicPlayer" parent="." index="0"]
+bus = &"Master"
