@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://dx68eofr4dw4d"]
 
 [ext_resource type="PackedScene" uid="uid://sikc02ddepyt" path="res://addons/maaacks_game_template/base/scenes/opening/opening.tscn" id="1_2t6oq"]
-[ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://assets/Cavernas_by_Adam_Saltsman.png" id="4_h5avb"]
+[ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://sprites/Cavernas_by_Adam_Saltsman.png" id="4_h5avb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
 texture = ExtResource("4_h5avb")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cyp2or1qx5lhx"]
 
-[ext_resource type="Script" path="res://Scripts/player_controller.gd" id="1_7xisg"]
 [ext_resource type="Texture2D" uid="uid://djba2ts2aee3y" path="res://sprites/player.png" id="1_c0dl6"]
+[ext_resource type="Script" path="res://scripts/PlayerController.gd" id="1_f1yub"]
 [ext_resource type="Script" path="res://scripts/player_anim.gd" id="2_64m7b"]
 
 [sub_resource type="Animation" id="Animation_jboqu"]
@@ -99,7 +99,7 @@ _data = {
 size = Vector2(6, 14)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-script = ExtResource("1_7xisg")
+script = ExtResource("1_f1yub")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
