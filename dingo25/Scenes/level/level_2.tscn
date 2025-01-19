@@ -572,7 +572,7 @@ texture = SubResource("GradientTexture2D_87ha2")
 position = Vector2(20, -9)
 scale = Vector2(0.125, 0.25)
 color = Color(0.878431, 0.803922, 0.388235, 1)
-energy = 0.8
+energy = 1.5
 texture = SubResource("GradientTexture2D_87ha2")
 
 [connection signal="body_entered" from="Killzones/killzone1" to="." method="_on_killzone_1_body_entered"]
