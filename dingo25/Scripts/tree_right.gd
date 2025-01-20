@@ -4,9 +4,9 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "Create_Platform")
-	$LeftPlatform.visible = false	
+	#$LeftPlatform.visible = false	
 	$RightPlatform.visible = false
-	$LeftPlatform.get_node("CollisionShape2D").disabled = true
+	#$LeftPlatform.get_node("CollisionShape2D").disabled = true
 	$RightPlatform.get_node("CollisionShape2D").disabled = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
