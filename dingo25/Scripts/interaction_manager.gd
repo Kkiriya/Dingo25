@@ -3,10 +3,10 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = $Label
 
-const base_text:String = "[R] to "
+const base_text:String = "[E] to "
 
 var active_areas:Array = []
-var can_interact = true
+var can_interact:bool = true
 
 func register_area(Area: InteractionArea):
 	active_areas.push_back(Area)

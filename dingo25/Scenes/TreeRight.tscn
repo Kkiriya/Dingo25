@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxcbytxbn5tg2"]
+[gd_scene load_steps=8 format=3 uid="uid://bxcbytxbn5tg2"]
 
 [ext_resource type="Script" path="res://Scripts/tree_right.gd" id="1_pw8kd"]
 [ext_resource type="Texture2D" uid="uid://88ciruyhkqf6" path="res://Assets/sprites/Plant_1.png" id="1_vb7mh"]
 [ext_resource type="Texture2D" uid="uid://bt24hh4aqe4cp" path="res://sprites/trees/tree_1_nobranch.png" id="2_iuw32"]
 [ext_resource type="PackedScene" uid="uid://rh5fk0h1xkcn" path="res://Scenes/Branch_Platform.tscn" id="3_u7gpa"]
+[ext_resource type="PackedScene" uid="uid://doovc6xxqw1l3" path="res://Interactions/Interactions area/Interaction_area.tscn" id="5_1py0t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a8d51"]
 animations = [{
@@ -19,6 +20,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7wpyf"]
+radius = 16.0
+height = 40.0
+
 [node name="TreeRight" type="Node2D"]
 script = ExtResource("1_pw8kd")
 
@@ -27,5 +32,13 @@ sprite_frames = SubResource("SpriteFrames_a8d51")
 frame = 1
 frame_progress = 0.975353
 
-[node name="Platform" parent="." instance=ExtResource("3_u7gpa")]
+[node name="RightPlatform" parent="." instance=ExtResource("3_u7gpa")]
 position = Vector2(11, 19.5)
+
+[node name="InteractionArea" parent="." instance=ExtResource("5_1py0t")]
+position = Vector2(11, 19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-13, -2.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7wpyf")

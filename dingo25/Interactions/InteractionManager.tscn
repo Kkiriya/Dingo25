@@ -18,6 +18,6 @@ grow_horizontal = 2
 scale = Vector2(1, 0.956704)
 theme_override_fonts/font = ExtResource("2_ld68h")
 theme_override_font_sizes/font_size = 8
-text = "Press [R] to Water the Tree"
+text = "Press [E] to interact"
 horizontal_alignment = 1
 vertical_alignment = 1
