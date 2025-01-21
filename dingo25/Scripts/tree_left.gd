@@ -5,6 +5,7 @@ extends Node2D
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "Create_Platform")
 	$LeftPlatform.visible = false
+	$AnimatedSprite2D.frame = 0
 	$LeftPlatform.get_node("CollisionShape2D").disabled = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -14,6 +15,7 @@ func _process(delta: float) -> void:
 func Create_Platform() -> void:
 	#When clicked on "x" on keyboard
 	#Actionner animation 1 fois
+	$AnimatedSprite2D.frame = 1
 	#Rendre la platforme solide et visible
 	if !$LeftPlatform.visible:
 		$LeftPlatform.visible = true

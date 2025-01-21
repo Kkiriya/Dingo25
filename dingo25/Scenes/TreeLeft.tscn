@@ -1,19 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://by8rqb7evygql"]
+[gd_scene load_steps=9 format=3 uid="uid://by8rqb7evygql"]
 
 [ext_resource type="Script" path="res://Scripts/tree_left.gd" id="1_grmyv"]
-[ext_resource type="Texture2D" uid="uid://88ciruyhkqf6" path="res://Assets/sprites/Plant_1.png" id="2_36e77"]
-[ext_resource type="Texture2D" uid="uid://cbqn8k5yyjeyq" path="res://sprites/trees/tree_2_nobranch.png" id="3_betom"]
+[ext_resource type="Texture2D" uid="uid://swf6q2n6tsom" path="res://sprites/Tree growing LEFT.png" id="2_bcdvl"]
 [ext_resource type="PackedScene" uid="uid://rh5fk0h1xkcn" path="res://Scenes/Branch_Platform.tscn" id="4_3fpe8"]
 [ext_resource type="PackedScene" uid="uid://doovc6xxqw1l3" path="res://Interactions/Interactions area/Interaction_area.tscn" id="5_4wegu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddkgv"]
+atlas = ExtResource("2_bcdvl")
+region = Rect2(0, 0, 37, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ujb0"]
+atlas = ExtResource("2_bcdvl")
+region = Rect2(37, 0, 37, 79)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_026xi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_36e77")
+"texture": SubResource("AtlasTexture_ddkgv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_betom")
+"texture": SubResource("AtlasTexture_7ujb0")
 }],
 "loop": true,
 "name": &"default",
@@ -22,16 +29,14 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cwvr"]
 radius = 16.0
-height = 40.0
+height = 36.0
 
 [node name="TreeLeft" type="Node2D"]
 script = ExtResource("1_grmyv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_026xi")
-frame = 1
-frame_progress = 0.539743
+frame_progress = 0.21761
 
 [node name="LeftPlatform" parent="." instance=ExtResource("4_3fpe8")]
 position = Vector2(-9.5, 19.5)
