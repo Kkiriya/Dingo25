@@ -1,6 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://by8rqb7evygql"]
+[gd_scene load_steps=8 format=3 uid="uid://by8rqb7evygql"]
 
 [ext_resource type="Script" path="res://Scripts/tree_left.gd" id="1_grmyv"]
+[ext_resource type="Texture2D" uid="uid://88ciruyhkqf6" path="res://Assets/sprites/Plant_1.png" id="2_36e77"]
+[ext_resource type="Texture2D" uid="uid://cbqn8k5yyjeyq" path="res://sprites/trees/tree_2_nobranch.png" id="3_betom"]
+[ext_resource type="PackedScene" uid="uid://rh5fk0h1xkcn" path="res://Scenes/Branch_Platform.tscn" id="4_3fpe8"]
+[ext_resource type="PackedScene" uid="uid://doovc6xxqw1l3" path="res://Interactions/Interactions area/Interaction_area.tscn" id="5_4wegu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_026xi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_36e77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_betom")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cwvr"]
+radius = 16.0
+height = 40.0
 
 [node name="TreeLeft" type="Node2D"]
 script = ExtResource("1_grmyv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_026xi")
+frame = 1
+frame_progress = 0.539743
+
+[node name="LeftPlatform" parent="." instance=ExtResource("4_3fpe8")]
+position = Vector2(-9.5, 19.5)
+
+[node name="InteractionArea" parent="." instance=ExtResource("5_4wegu")]
+position = Vector2(-7.5, 19.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(6.5, -1.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3cwvr")
