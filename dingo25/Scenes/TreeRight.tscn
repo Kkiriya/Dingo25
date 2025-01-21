@@ -33,7 +33,7 @@ frame = 1
 frame_progress = 0.975353
 
 [node name="RightPlatform" parent="." instance=ExtResource("3_u7gpa")]
-position = Vector2(11, 19.5)
+position = Vector2(8, 19.5)
 
 [node name="InteractionArea" parent="." instance=ExtResource("5_1py0t")]
 position = Vector2(11, 19.5)
