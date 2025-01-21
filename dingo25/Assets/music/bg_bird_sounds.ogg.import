@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bipppfbuml52k"
-path="res://.godot/imported/bg_bird_sounds.ogg-cf9573266891423b4ddcecdff5548252.oggvorbisstr"
+path="res://.godot/imported/bg_bird_sounds.ogg-8da9a858cfe57e12d3de6b92154c3961.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/music/bg_bird_sounds.ogg"
-dest_files=["res://.godot/imported/bg_bird_sounds.ogg-cf9573266891423b4ddcecdff5548252.oggvorbisstr"]
+source_file="res://assets/music/bg_bird_sounds.ogg"
+dest_files=["res://.godot/imported/bg_bird_sounds.ogg-8da9a858cfe57e12d3de6b92154c3961.oggvorbisstr"]
 
 [params]
 

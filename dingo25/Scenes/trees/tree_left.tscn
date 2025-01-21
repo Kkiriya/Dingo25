@@ -7,4 +7,4 @@
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_scmj2")
 region_enabled = true
-region_rect = Rect2(0.0409622, 0, 36.959, 79)
+region_rect = Rect2(0.0409622, 0, 37.959, 79)
