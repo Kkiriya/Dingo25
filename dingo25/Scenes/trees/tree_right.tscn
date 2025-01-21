@@ -5,6 +5,7 @@
 [node name="tree_right" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
 texture = ExtResource("1_wc8gy")
 region_enabled = true
 region_rect = Rect2(0.821533, 0.841745, 36.1785, 78.1583)

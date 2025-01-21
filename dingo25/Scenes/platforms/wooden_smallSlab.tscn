@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://f3wx2wj64l11"]
+[gd_scene load_steps=3 format=3 uid="uid://f3wx2wj64l11"]
 
 [ext_resource type="Texture2D" uid="uid://d0jrsf61dwhpj" path="res://sprites/platforms.png" id="1_0w7ei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rojfh"]
 size = Vector2(8, 3)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nmj7v"]
-polygon = PackedVector2Array(-4, -4, 4, -4, 4, 0, -4, 0)
 
 [node name="Wood_platform_1" type="AnimatableBody2D"]
 
@@ -19,6 +16,3 @@ region_rect = Rect2(0, 18, 8, 8)
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_rojfh")
 one_way_collision = true
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_nmj7v")

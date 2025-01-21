@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1twkwntdgsyg"]
+[gd_scene load_steps=3 format=3 uid="uid://d1twkwntdgsyg"]
 
 [ext_resource type="Texture2D" uid="uid://d0jrsf61dwhpj" path="res://sprites/platforms.png" id="1_13nwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rojfh"]
 size = Vector2(36, 4)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r8nhb"]
-polygon = PackedVector2Array(-18, -4, 18, -4, 18, 0, 17, 0, 17, 1, -17, 1, -17, 0, -18, 0, -18, -4)
 
 [node name="stone_platform" type="AnimatableBody2D"]
 
@@ -19,6 +16,3 @@ region_rect = Rect2(0, 0, 36, 7)
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_rojfh")
 one_way_collision = true
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_r8nhb")
