@@ -530,7 +530,7 @@ position = Vector2(404, -91)
 
 [node name="tree_left" type="Node" parent="Trees"]
 
-[node name="tree_left" parent="Trees/tree_left" instance=ExtResource("5_dq0xl")]
+[node name="tree_left_1" parent="Trees/tree_left" instance=ExtResource("5_dq0xl")]
 position = Vector2(83, -56)
 
 [node name="tree_left2" parent="Trees/tree_left" instance=ExtResource("6_y2g0o")]
