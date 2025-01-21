@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_2kj0f"]
 [ext_resource type="Texture2D" uid="uid://dtt8shm41x7sm" path="res://Assets/clouds.png" id="2_1atj2"]
 [ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://sprites/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
-[ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://Scenes/player.tscn" id="2_ilx0i"]
+[ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://scenes/player.tscn" id="2_ilx0i"]
 [ext_resource type="AudioStream" uid="uid://bwktmnnyo5085" path="res://Assets/music/bg_music.ogg" id="5_gfohy"]
 [ext_resource type="AudioStream" uid="uid://bipppfbuml52k" path="res://Assets/music/bg_bird_sounds.ogg" id="6_ixygg"]
 

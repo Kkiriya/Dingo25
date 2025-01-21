@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/player_anim.gd" id="2_64m7b"]
 [ext_resource type="Texture2D" uid="uid://c7fda1fbbb0rt" path="res://sprites/waterCan/Water3.png" id="2_c7akd"]
 [ext_resource type="FontFile" uid="uid://cpl5o0gy0q54g" path="res://Assets/nature-green-font/NatureGreen-gxm66.otf" id="2_qaofh"]
-[ext_resource type="Script" path="res://Scripts/visual_cues.gd" id="4_nonui"]
+[ext_resource type="Script" path="res://scripts/visual_cues.gd" id="4_nonui"]
 [ext_resource type="AudioStream" uid="uid://k4ymt0yv4yjw" path="res://Assets/sounds/jump_drop_sounds/jump0.ogg" id="7_hgfw8"]
 [ext_resource type="AudioStream" uid="uid://d0ointi7iqklx" path="res://Assets/sounds/jump_drop_sounds/drop0.ogg" id="8_24xep"]
 
