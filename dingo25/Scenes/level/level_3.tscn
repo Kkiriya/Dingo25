@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_vxfif"]
 [ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://sprites/Cavernas_by_Adam_Saltsman.png" id="2_hpyd2"]
-[ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://scenes/player.tscn" id="3_2t4uk"]
-[ext_resource type="FontFile" uid="uid://cro5hcu2k6umm" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_tkjoj"]
-[ext_resource type="FontFile" uid="uid://rj5mymyf2kx8" path="res://assets/fonts/PixelOperator8.ttf" id="4_p5tp8"]
+[ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://Scenes/player.tscn" id="3_2t4uk"]
+[ext_resource type="FontFile" uid="uid://cro5hcu2k6umm" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_tkjoj"]
+[ext_resource type="FontFile" uid="uid://rj5mymyf2kx8" path="res://Assets/fonts/PixelOperator8.ttf" id="4_p5tp8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
 resource_name = "terrain"
