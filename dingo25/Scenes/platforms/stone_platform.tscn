@@ -16,3 +16,7 @@ region_rect = Rect2(0, 0, 36, 7)
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_rojfh")
 one_way_collision = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_r8nhb")

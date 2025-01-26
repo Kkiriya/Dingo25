@@ -345,6 +345,8 @@ position = Vector2(333, -112)
 
 [node name="TreeLeft" parent="Trees/tree_left" instance=ExtResource("3_rqke6")]
 position = Vector2(91, -58)
+[node name="tree_left_1" parent="Trees/tree_left" instance=ExtResource("5_dq0xl")]
+position = Vector2(83, -56)
 
 [node name="TreeLeft2" parent="Trees/tree_left" instance=ExtResource("3_rqke6")]
 position = Vector2(78, -135)
