@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch0bjvm5d4vho"]
+[gd_scene load_steps=2 format=3 uid="uid://ch0bjvm5d4vho"]
 
 [ext_resource type="Texture2D" uid="uid://cbqn8k5yyjeyq" path="res://sprites/trees/tree_2_nobranch.png" id="1_scmj2"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4wtrw"]
-polygon = PackedVector2Array(-4, -9, -4, -1, 0, -1, 0, -9)
 
 [node name="tree_left" type="AnimatableBody2D"]
 
@@ -11,8 +8,3 @@ polygon = PackedVector2Array(-4, -9, -4, -1, 0, -1, 0, -9)
 texture = ExtResource("1_scmj2")
 region_enabled = true
 region_rect = Rect2(0.0409622, 0, 36.959, 79)
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-show_behind_parent = true
-position = Vector2(3, 1)
-occluder = SubResource("OccluderPolygon2D_4wtrw")

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4y5n"]
 size = Vector2(22, 2)
 
-[node name="branch_right" type="AnimatableBody2D"]
+[node name="tree_right" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)

@@ -13,7 +13,6 @@ region_enabled = true
 region_rect = Rect2(18, 0, 18, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-show_behind_parent = true
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_rojfh")
 one_way_collision = true

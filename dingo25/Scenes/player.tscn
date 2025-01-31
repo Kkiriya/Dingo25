@@ -180,7 +180,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("jumpUI", "waterUI", "resetlvl_UI", "nextlvl_UI", "fall_sound", "jump_sound") groups=["player"]]
-z_index = 5
 script = ExtResource("1_f1yub")
 jumpUI = NodePath("Camera2D/CanvasLayer/jump_lbl")
 waterUI = NodePath("Camera2D/CanvasLayer/water_lbl")
