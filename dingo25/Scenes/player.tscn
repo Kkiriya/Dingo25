@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cyp2or1qx5lhx"]
+[gd_scene load_steps=23 format=3 uid="uid://cyp2or1qx5lhx"]
 
 [ext_resource type="Texture2D" uid="uid://djba2ts2aee3y" path="res://sprites/player.png" id="1_c0dl6"]
 [ext_resource type="Script" path="res://scripts/PlayerController.gd" id="1_f1yub"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://Scripts/visual_cues.gd" id="4_nonui"]
 [ext_resource type="AudioStream" uid="uid://k4ymt0yv4yjw" path="res://Assets/sounds/jump_drop_sounds/jump0.ogg" id="7_hgfw8"]
 [ext_resource type="AudioStream" uid="uid://d0ointi7iqklx" path="res://Assets/sounds/jump_drop_sounds/drop0.ogg" id="8_24xep"]
+[ext_resource type="AudioStream" uid="uid://cigcddhhsevju" path="res://Assets/sounds/water0.ogg" id="9_8npq8"]
+[ext_resource type="AudioStream" uid="uid://c4drvbedm2jqc" path="res://Assets/sounds/water1.ogg" id="10_5d70k"]
+[ext_resource type="AudioStream" uid="uid://brs5d7u2xa8b5" path="res://Assets/sounds/water3.ogg" id="11_se0ny"]
 
 [sub_resource type="Animation" id="Animation_jboqu"]
 length = 0.001
@@ -297,5 +300,14 @@ stream = ExtResource("7_hgfw8")
 
 [node name="fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_24xep")
+
+[node name="Water0" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_8npq8")
+
+[node name="Water1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_5d70k")
+
+[node name="Water3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_se0ny")
 
 [connection signal="animation_finished" from="Visual_Cues/wateringCan_sprite/wateringCan_AnimationPlayer" to="Visual_Cues" method="_on_watering_can_animation_player_animation_finished"]
