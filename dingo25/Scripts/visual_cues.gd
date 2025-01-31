@@ -19,7 +19,6 @@ func _process(delta: float) -> void:
 		sprite.global_position = player_controller.global_position + Vector2(0, -8)
 		sprite.visible = true
 		animation_player.play("watering")
-		var rand_index:int = randi() % water_sounds.size()
 		var WaterSound_Toplay = water_sounds.pick_random()
 		WaterSound_Toplay.play()
 
