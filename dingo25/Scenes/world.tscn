@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://dvarflvdl42fe"]
 
 [ext_resource type="Texture2D" uid="uid://cq3o050j6vuae" path="res://Assets/sprites/world_tileset.png" id="1_7tomr"]
-[ext_resource type="PackedScene" uid="uid://bxcbytxbn5tg2" path="res://Scenes/TreeRight.tscn" id="2_h5bxa"]
+[ext_resource type="PackedScene" uid="uid://bxcbytxbn5tg2" path="res://scenes/TreeRight.tscn" id="2_h5bxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s28rp"]
 

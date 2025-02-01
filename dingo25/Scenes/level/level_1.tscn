@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://Scenes/player.tscn" id="2_ilx0i"]
 [ext_resource type="PackedScene" uid="uid://bxcbytxbn5tg2" path="res://Scenes/TreeRight.tscn" id="4_brsmg"]
 [ext_resource type="PackedScene" uid="uid://by8rqb7evygql" path="res://Scenes/TreeLeft.tscn" id="5_sluur"]
+[ext_resource type="AudioStream" uid="uid://bwktmnnyo5085" path="res://Assets/music/bg_music.ogg" id="5_gfohy"]
+[ext_resource type="AudioStream" uid="uid://bipppfbuml52k" path="res://Assets/music/bg_bird_sounds.ogg" id="6_ixygg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
 resource_name = "terrain"
