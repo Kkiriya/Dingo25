@@ -1,49 +1,70 @@
-[gd_scene load_steps=9 format=3 uid="uid://by8rqb7evygql"]
+[gd_scene load_steps=11 format=3 uid="uid://by8rqb7evygql"]
 
-[ext_resource type="Script" path="res://Scripts/tree_left.gd" id="1_grmyv"]
-[ext_resource type="Texture2D" uid="uid://swf6q2n6tsom" path="res://sprites/Tree growing LEFT.png" id="2_bcdvl"]
-[ext_resource type="PackedScene" uid="uid://rh5fk0h1xkcn" path="res://Scenes/platform.tscn" id="4_3fpe8"]
-[ext_resource type="PackedScene" uid="uid://doovc6xxqw1l3" path="res://Interactions/Interactions area/Interaction_area.tscn" id="5_4wegu"]
+[ext_resource type="Script" path="res://scripts/tree_left.gd" id="1_grmyv"]
+[ext_resource type="Texture2D" uid="uid://c302e3vpynb18" path="res://Assets/sprites/knight.png" id="2_8x4j2"]
+[ext_resource type="PackedScene" uid="uid://rh5fk0h1xkcn" path="res://scenes/platform.tscn" id="3_xgsi3"]
+[ext_resource type="PackedScene" uid="uid://doovc6xxqw1l3" path="res://Interactions/Interactions area/Interaction_area.tscn" id="4_djxq4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ddkgv"]
-atlas = ExtResource("2_bcdvl")
-region = Rect2(0, 0, 37, 79)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxqr3"]
+atlas = ExtResource("2_8x4j2")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ujb0"]
-atlas = ExtResource("2_bcdvl")
-region = Rect2(37, 0, 37, 79)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q56k2"]
+atlas = ExtResource("2_8x4j2")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_026xi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4q0h"]
+atlas = ExtResource("2_8x4j2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaisg"]
+atlas = ExtResource("2_8x4j2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0iq7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ddkgv")
+"texture": SubResource("AtlasTexture_bxqr3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7ujb0")
+"texture": SubResource("AtlasTexture_q56k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4q0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaisg")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f62ga"]
-radius = 16.0
-height = 36.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f724i"]
+radius = 23.0
+height = 114.0
 
 [node name="TreeLeft" type="Node2D"]
 script = ExtResource("1_grmyv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_026xi")
-frame_progress = 0.21761
+position = Vector2(1.19209e-07, -18)
+scale = Vector2(1.8125, 4.375)
+sprite_frames = SubResource("SpriteFrames_x0iq7")
+frame = 3
+frame_progress = 0.957971
 
-[node name="LeftPlatform" parent="." instance=ExtResource("4_3fpe8")]
-position = Vector2(-9.5, 19.5)
+[node name="LeftPlatform" parent="." instance=ExtResource("3_xgsi3")]
+position = Vector2(-27, -7)
 
-[node name="InteractionArea" parent="." instance=ExtResource("5_4wegu")]
+[node name="RightPlatform" parent="." instance=ExtResource("3_xgsi3")]
+position = Vector2(27, -7)
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_djxq4")]
+position = Vector2(-1, 26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 17)
+position = Vector2(1, -25)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_f62ga")
+shape = SubResource("CapsuleShape2D_f724i")
