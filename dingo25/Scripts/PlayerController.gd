@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var fall_sound : AudioStreamPlayer
 @export var jump_sound : AudioStreamPlayer
 #@export var NextLevel : Area2D
+
 var speed_multiplier = 30
 var jump_multiplier = -30
 var direction = 0
