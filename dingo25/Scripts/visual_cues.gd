@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("WaterTree"):
 		sprite.global_position = player_controller.global_position + Vector2(0, -8)
 		sprite.visible = true
@@ -22,5 +22,5 @@ func _process(_delta: float) -> void:
 		var WaterSound_Toplay = water_sounds.pick_random()
 		WaterSound_Toplay.play()
 
-func _on_watering_can_animation_player_animation_finished(_anim_name: StringName) -> void:
+func _on_watering_can_animation_player_animation_finished(anim_name: StringName) -> void:
 	sprite.visible = false

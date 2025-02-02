@@ -81,8 +81,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 theme = SubResource("Theme_3l2hq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2idk8")
-text = "Branching"
-horizontal_alignment = 1
+text = "PlaceHolder"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ldh08")
