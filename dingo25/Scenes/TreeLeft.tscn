@@ -27,7 +27,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cwvr"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f62ga"]
 radius = 16.0
 height = 36.0
 
@@ -42,9 +42,8 @@ frame_progress = 0.21761
 position = Vector2(-9.5, 19.5)
 
 [node name="InteractionArea" parent="." instance=ExtResource("5_4wegu")]
-position = Vector2(-7.5, 19.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(6.5, -1.5)
+position = Vector2(0, 17)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_3cwvr")
+shape = SubResource("CapsuleShape2D_f62ga")

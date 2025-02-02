@@ -46,7 +46,7 @@ position = Vector2(7.5, 19.5)
 position = Vector2(11, 19.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-13, -2.5)
+position = Vector2(-11, -2.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7wpyf")
 
