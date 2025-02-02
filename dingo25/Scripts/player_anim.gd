@@ -5,7 +5,7 @@ extends Node2D
 @export var sprite : Sprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	#direction the sprite faces
 	if player_controller.direction == 1:
 		sprite.flip_h = false
