@@ -10,7 +10,6 @@ extends CharacterBody2D
 @export var fall_sound : AudioStreamPlayer
 @export var jump_sound : AudioStreamPlayer
 #@export var NextLevel : Area2D
-
 var speed_multiplier = 30
 var jump_multiplier = -30
 var direction = 0
@@ -56,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_jump_body_entered(_body: Node2D) -> void:
+func _on_jump_body_entered(body: Node2D) -> void:
 	jumpUI.visible = true
 	waterUI.visible = false
 	resetlvl_UI.visible = false
@@ -65,7 +64,7 @@ func _on_jump_body_entered(_body: Node2D) -> void:
 	jumpUI.visible = false
 
 
-func _on_water_body_entered(_body: Node2D) -> void:
+func _on_water_body_entered(body: Node2D) -> void:
 	waterUI.visible = true
 	jumpUI.visible = false
 	resetlvl_UI.visible = false
@@ -74,7 +73,7 @@ func _on_water_body_entered(_body: Node2D) -> void:
 	waterUI.visible = false
 
 
-func _on_next_level_body_entered(_body: Node2D) -> void:
+func _on_next_level_body_entered(body: Node2D) -> void:
 	nextlvl_UI.visible = true
 	jumpUI.visible = false
 	waterUI.visible = false
@@ -83,7 +82,7 @@ func _on_next_level_body_entered(_body: Node2D) -> void:
 	nextlvl_UI.visible = false
 
 
-func _on_reset_body_entered(_body: Node2D) -> void:
+func _on_reset_body_entered(body: Node2D) -> void:
 	resetlvl_UI.visible = true
 	jumpUI.visible = false
 	waterUI.visible = false

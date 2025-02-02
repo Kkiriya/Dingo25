@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bajpjtvl8gsn1"
-path="res://.godot/imported/clouds.png-eb709d85eb460ad7cf77f5ad5964bb31.ctex"
+uid="uid://d4by7js4ew86n"
+path="res://.godot/imported/Tree growing.png-19c3f4fcd8a110946e58406bfb5533ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/clouds.png"
-dest_files=["res://.godot/imported/clouds.png-eb709d85eb460ad7cf77f5ad5964bb31.ctex"]
+source_file="res://sprites/Tree growing.png"
+dest_files=["res://.godot/imported/Tree growing.png-19c3f4fcd8a110946e58406bfb5533ff.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rh5fk0h1xkcn"]
 
-[ext_resource type="Texture2D" uid="uid://d4lwjig016wuf" path="res://sprites/trees/tree_2.png" id="1_hr3jf"]
+[ext_resource type="Texture2D" uid="uid://d4lwjig016wuf" path="res://sprites/trees/tree_2.png" id="1_n6kmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15umo"]
 size = Vector2(24, 2)
@@ -11,6 +11,6 @@ size = Vector2(24, 2)
 shape = SubResource("RectangleShape2D_15umo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_hr3jf")
+texture = ExtResource("1_n6kmt")
 region_enabled = true
 region_rect = Rect2(0.0409622, 58, 21.959, 2)
