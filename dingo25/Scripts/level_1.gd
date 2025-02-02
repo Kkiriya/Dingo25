@@ -8,7 +8,9 @@ var in_body = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	player = get_tree().get_first_node_in_group("player")
+	if player != null:
+		Global.set_player(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -17,10 +19,8 @@ func _process(_delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	if in_body == 1:
 		if Input.is_action_just_pressed("up"):
-			get_tree().change_scene_to_file("res://scenes/level/test.tscn")
-			
-	
-func _on_next_level_body_entered(_body: Node2D) -> void:
+			get_tree().change_scene_to_file("res://scenes/level/level_2.tscn")
+func _on_next_level_body_entered(body: Node2D) -> void:
 	in_body = 1
 	
 
