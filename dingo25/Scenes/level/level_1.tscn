@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://bd7woiw85su8m"]
+[gd_scene load_steps=8 format=4 uid="uid://bd7woiw85su8m"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_2kj0f"]
 [ext_resource type="Texture2D" uid="uid://dlrmpkxmjypf" path="res://sprites/Cavernas_by_Adam_Saltsman.png" id="2_bo4t1"]
 [ext_resource type="PackedScene" uid="uid://cyp2or1qx5lhx" path="res://Scenes/player.tscn" id="2_ilx0i"]
 [ext_resource type="PackedScene" uid="uid://bxcbytxbn5tg2" path="res://Scenes/TreeRight.tscn" id="4_brsmg"]
-[ext_resource type="PackedScene" uid="uid://by8rqb7evygql" path="res://Scenes/TreeLeft.tscn" id="5_sluur"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mttf4"]
 resource_name = "terrain"
@@ -319,18 +318,6 @@ collision_mask = 2
 position = Vector2(179, -248)
 scale = Vector2(0.313117, 1.12615)
 shape = SubResource("RectangleShape2D_pcaat")
-
-[node name="TreeRight" parent="." instance=ExtResource("4_brsmg")]
-position = Vector2(113, -55)
-
-[node name="TreeRight2" parent="." instance=ExtResource("4_brsmg")]
-position = Vector2(168, -88)
-
-[node name="TreeLeft" parent="." instance=ExtResource("5_sluur")]
-position = Vector2(301, -143)
-
-[node name="TreeLeft2" parent="." instance=ExtResource("5_sluur")]
-position = Vector2(102, -191)
 
 [connection signal="body_entered" from="Next_level" to="." method="_on_next_level_body_entered"]
 [connection signal="body_shape_exited" from="Next_level" to="." method="_on_next_level_body_shape_exited"]
